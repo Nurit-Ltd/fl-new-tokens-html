@@ -49,3 +49,47 @@ document.addEventListener("DOMContentLoaded", () => {
   // Wrap the content for the marquee effect
   wrapper.innerHTML = `<div class="marquee-track">${content}${content}</div>`;
 });
+
+// customize-btn start
+
+document.addEventListener("DOMContentLoaded", function () {
+  const customizeBtn = document.querySelector(".customize-btn");
+  let view_inputs = document.querySelectorAll(".view-input");
+  let cust_header_btns = document.querySelectorAll(".cust-header-btns");
+  let allContents = document.querySelectorAll("");
+
+  console.log(view_inputs);
+
+  if (customizeBtn) {
+    console.log(customizeBtn);
+    customizeBtn.addEventListener("click", function () {
+      console.log("ami customize-btn");
+    });
+  } else {
+    console.warn("customize-btn not found");
+  }
+
+  view_inputs.forEach((input) => {
+    console.log(input);
+    input.addEventListener("change", function () {
+      const prevDiv = input.previousElementSibling;
+      console.log(prevDiv);
+      if (prevDiv && prevDiv.tagName === "DIV") {
+        prevDiv.style.backgroundColor = input.checked ? "#456EEB" : "";
+      }
+    });
+  });
+
+  cust_header_btns.forEach((button) => {
+    button.addEventListener("click", function () {
+      console.log(button.classList);
+      cust_header_btns.forEach((btn) =>
+        btn.classList.remove("cus-modal-header-active")
+      );
+
+      button.classList.add("cus-modal-header-active");
+      console.log(button.attributes.name);
+      document.getElementsByClassName(button.attributes.name).addEventListener;
+    });
+  });
+});
