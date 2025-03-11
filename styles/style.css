@@ -52,6 +52,7 @@ ol {
     --bgBrandSecondary: #253bac;
     --bgDefaultPrimary: #13131b;
     --bgDefaultPrimaryHov: #181924;
+    --bgAccentTertiary: #115E59;
     --bgUtilitiesHighlight: rgba(255, 255, 255, 0.01);
 
     /* Border Colors */
@@ -774,7 +775,306 @@ body {
 
 /* Table customize modal section start here */
 
+.customize-modal {
+    position: absolute;
+    inset: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 1000;
+}
 
+.cust_mod_pop_con {
+    background-color: var(--borderDefaultPrimary);
+    width: 500px;
+    border-radius: 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-family: var(--fontInter);
+    font-size: 16px;
+    color: var(--textDefaultPrimary);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+
+
+    @media (max-width:768px) {
+        width: 375px;
+        height: 607px;
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    @media (max-width:420px) {
+        width: 90vw;
+        height: 80vh;
+    }
+}
+
+.customize-modal-div {
+    display: block;
+
+    @media (max-width:768px) {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.customize-modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cus-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--bgDefaultPrimaryHov);
+    padding: 8px 24px;
+}
+
+.cust-modal-close-btn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--borderDefaultPrimary);
+    background: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+
+    &:hover {
+        background: var(--borderDefaultPrimary);
+    }
+}
+
+.cust-heading {
+    font-family: var(--fontInter);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--textDefaultPrimary);
+}
+
+.cust-btn-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cust-header-btns {
+    grid-column: span 1;
+    text-align: center;
+    padding: 6px 0;
+    color: var(--textDefaultTertiary);
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 0.5px solid var(--borderDefaultSecondary);
+
+    &:hover {
+        color: var(--textBrandDefault);
+        border-bottom: 0.5px solid var(--borderBrandDefault);
+    }
+}
+
+.cus-modal-header-active {
+    color: var(--textBrandDefault) !important;
+    border-bottom: 1px solid var(--borderBrandDefault);
+}
+
+.cust-modal-btns {
+    margin: 0 24px;
+    padding-top: 16px;
+    padding-bottom: 24px;
+    display: flex;
+    gap: 16px;
+    border-top: 1px solid var(--borderDefaultSecondary);
+    margin-top: auto !important;
+}
+
+.cust-modal-btn {
+    padding: 10px 0;
+    background-color: var(--bgDefaultPrimaryHov);
+    border: none;
+    width: 100%;
+    color: var(--textDefaultPrimary);
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+.modal-content {
+    display: none;
+    margin: 16px 24px 24px 24px;
+    height: 608px;
+}
+
+.modal-content.active {
+    display: block;
+
+
+
+    @media (max-width:768px) {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+}
+
+.view-input-list-item {
+    margin-bottom: 12px;
+}
+
+.cust-view-input {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    padding: 7.5px 8px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.cust-view-input-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cust-svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cust-svg-wrapper {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    background: var(--bgDefaultPrimary);
+    border: 1px solid var(--borderBrandTertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cust-svg-wrapper svg {
+    display: none;
+}
+
+.cust-svg-wrapper svg path {
+    stroke: #0e0f43;
+}
+
+
+.view-input-list-item .cust-view-input {
+
+    @media (max-width:1024px) {
+
+        background-color: #434343;
+    }
+}
+
+input[type="checkbox"]:checked+.cust-svg-wrapper {
+    background: var(--bgBrandDefault);
+    border-color: none;
+}
+
+input[type="checkbox"]:checked+.cust-svg-wrapper svg {
+    display: block;
+}
+
+.selected_message {
+    color: var(--textDefaultTertiary);
+}
+
+.active {
+    display: block;
+}
+
+.metrics-input-list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 12px;
+    font-family: var(--fontInter);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--textDefaultPrimary);
+}
+
+.cust-metrics-input-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.metrics-input {
+    padding: 6px 8px;
+    border: 1px solid var(--borderDefaultPrimary);
+    border-radius: 4px;
+    outline: none;
+    background-color: var(--bgDefaultPrimary);
+    border-radius: 10px;
+    width: 100%;
+    color: var(--textDefaultTertiary);
+}
+
+@media (max-width: 1024px) {
+    .customize-modal {
+        font-size: 14px;
+    }
+
+    .checkbox_inp {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        flex-wrap: wrap;
+
+        * {
+            user-select: none;
+        }
+    }
+
+    .audit_text_ico {
+        display: none;
+    }
+
+    .cust-view-input-div {
+        display: none;
+    }
+
+
+
+    .cust-svg-wrapper {
+        border: none;
+        background: none;
+    }
+
+    .cust-view-input:has(.view-input:checked) {
+        background: var(--bgBrandDefault);
+    }
+
+    .checkbox_inp.audit {
+        .cust-view-input:has(.view-input:checked) {
+            background: var(--bgAccentTertiary);
+        }
+
+        .cust-view-input:has(.view-input:checked) .cust-view-input-div {
+            display: none;
+        }
+    }
+
+    .cust-view-input:has(.view-input:checked) .cust-view-input-div {
+        display: flex;
+    }
+}
 
 /* Table customize modal section ends here */
 /* Table Controls section ends here */
