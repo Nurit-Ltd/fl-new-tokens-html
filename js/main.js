@@ -65,7 +65,7 @@ timeButtons.forEach((button) => {
   });
 });
 
-// customize-btn start
+// customize-Modal
 
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.querySelector(".customize-modal");
@@ -99,4 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   document.querySelector(".cust-header-btns.cus-modal-header-active")?.click();
+
+  // Close modal when clicking outside content area
+  modal?.addEventListener("click", function (e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
 });
