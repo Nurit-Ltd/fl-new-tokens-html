@@ -50,13 +50,28 @@ document.addEventListener("DOMContentLoaded", () => {
   wrapper.innerHTML = `<div class="marquee-track">${content}${content}</div>`;
 });
 
+// Timeframe filter control
+
+const timeButtons = document.querySelectorAll(".time-filters button");
+const searchInput = document.getElementById("searchInput");
+
+timeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const timeframe = button.textContent;
+    searchInput.placeholder = `Search New Tokens (${timeframe})`;
+
+    timeButtons.forEach((btn) => btn.classList.remove("active"));
+    button.classList.add("active");
+  });
+});
+
 // customize-btn start
 
 document.addEventListener("DOMContentLoaded", function () {
-  const customizeBtn = document.querySelector(".customize-btn");
+  const customizeBtn = document.getElementById("customizeBtn");
   let view_inputs = document.querySelectorAll(".view-input");
   let cust_header_btns = document.querySelectorAll(".cust-header-btns");
-  let allContents = document.querySelectorAll("");
+  // let allContents = document.querySelectorAll("");
 
   console.log(view_inputs);
 

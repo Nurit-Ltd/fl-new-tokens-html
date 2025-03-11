@@ -206,368 +206,65 @@
         <div class="container">
           <div class="table-controls-content-wrapper">
             <div class="controls">
-              <button class="customize-btn">
+              <button id="customizeBtn" class="customize-btn">
                 <img
                   class="customize-icon"
                   src="./public/images/customize-icon.svg"
                   alt="Customize-icon"
                 /><span>Customise</span>
               </button>
+
+              <!-- Timeframe filter -->
+
+              <div class="time-filters">
+                <button class="time-filter-btn">5m</button>
+                <button class="time-filter-btn">30m</button>
+                <button class="time-filter-btn">1h</button>
+                <button class="time-filter-btn">6h</button>
+                <button class="time-filter-btn active">24h</button>
+              </div>
+
+              <!-- Timeframe filter -->
+
+              <!-- Quick Buy Button -->
+
+              <div class="quick-buy-btn-wrapper">
+                <p class="quick-buy-text">Quick Buy</p>
+                <img
+                  src="./public/images/zap-icon.svg"
+                  alt="Zap-icon"
+                  class="quick-buy-icon"
+                />
+                <button class="quick-buy-btn">10 XRP</button>
+              </div>
+
+              <!-- Quick Buy Button -->
+
+              <!-- Refresh button -->
+
+              <button class="refresh-btn">
+                <img
+                  src="./public/images/refresh-icon.svg"
+                  alt="Refresh-icon"
+                />
+              </button>
             </div>
             <div class="table-search">
               <input
+                id="searchInput"
                 class="search-input-box"
                 type="text"
-                placeholder="Search New Tokens"
+                placeholder="Search New Tokens (24h)"
               />
               <button type="submit" id="tableSearch" class="search-button">
                 <img src="./public/images/search-icon.svg" alt="Search-icon" />
               </button>
             </div>
           </div>
-          <div class="customize-modal">
-            <div class="customize-modal-div">
-              <div class="cus-modal-header">
-                <h6 class="cust-heading">Customize</h6>
-                <button class="cust-modal-close-btn">
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M11 1L1 11M1 1L11 11"
-                      stroke="#F5F5F5"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="cust-btn-header">
-                <div name="view-content" class="cust-header-btns cus-modal-header-active">
-                  <p>View</p>
-                </div>
-                <div name="metrics" class="cust-header-btns">
-                  <p>Metrics</p>
-                </div>
-                <div name="audit" class="cust-header-btns">
-                  <p>Audit</p>
-                </div>
-              </div>
-              <div>
-                <ul class="view-content modal-content-active modal-content-hide">
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Age</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Price</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Market Cap</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Liquidity</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                            <li>d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Initial Liquidity</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Volume</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Holders</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Transactions</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Audit</p>
-                    </label>
-                  </li>
-                  <li class="view-input-list-item">
-                    <label class="cust-view-input">
-                      <div class="cust-view-input-div">
-                        <div class="cust-svg-wrapper">
-                          <svg
-                            width="14"
-                            height="10"
-                            viewBox="0 0 14 10"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12.3334 1.5L5.00008 8.83333L1.66675 5.5"
-                              stroke="#0E0F43"
-                              stroke-width="1.6"
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                            />
-                          </svg>
-                        </div>
-                        <input
-                          class="view-input"
-                          type="checkbox"
-                          id="view"
-                          hidden
-                        />
-                      </div>
-                      <p>Quick Buy</p>
-                    </label>
-                  </li>
-                </ul>
-                <div class="cust-modal-btns">
-                  <button class="cust-modal-btn">Reset Filters</button>
-                  <button style="background-color: #365ED8;" class="cust-modal-btn">Apply Filters</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+          <!-- Customize Modal Starts Here -->
+
+          <!-- Customize Modal Starts Here -->
         </div>
       </section>
 
