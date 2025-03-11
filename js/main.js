@@ -68,43 +68,35 @@ timeButtons.forEach((button) => {
 // customize-btn start
 
 document.addEventListener("DOMContentLoaded", function () {
-  const customizeBtn = document.getElementById("customizeBtn");
-  let view_inputs = document.querySelectorAll(".view-input");
-  let cust_header_btns = document.querySelectorAll(".cust-header-btns");
-  // let allContents = document.querySelectorAll("");
+  const modal = document.querySelector(".customize-modal");
+  const openModalBtn = document.querySelector(".customize-btn");
+  const closeModalBtn = document.querySelector(".cust-modal-close-btn");
+  const tabButtons = document.querySelectorAll(".cust-header-btns");
+  const contentSections = document.querySelectorAll(".modal-content");
 
-  console.log(view_inputs);
+  openModalBtn?.addEventListener("click", () => {
+    modal.classList.add("show");
+  });
 
-  if (customizeBtn) {
-    console.log(customizeBtn);
-    customizeBtn.addEventListener("click", function () {
-      console.log("ami customize-btn");
-    });
-  } else {
-    console.warn("customize-btn not found");
+  closeModalBtn?.addEventListener("click", closeModal);
+
+  function closeModal() {
+    modal.classList.remove("show");
   }
 
-  view_inputs.forEach((input) => {
-    console.log(input);
-    input.addEventListener("change", function () {
-      const prevDiv = input.previousElementSibling;
-      console.log(prevDiv);
-      if (prevDiv && prevDiv.tagName === "DIV") {
-        prevDiv.style.backgroundColor = input.checked ? "#456EEB" : "";
-      }
-    });
-  });
-
-  cust_header_btns.forEach((button) => {
+  tabButtons.forEach((button) => {
     button.addEventListener("click", function () {
-      console.log(button.classList);
-      cust_header_btns.forEach((btn) =>
+      tabButtons.forEach((btn) =>
         btn.classList.remove("cus-modal-header-active")
       );
+      this.classList.add("cus-modal-header-active");
 
-      button.classList.add("cus-modal-header-active");
-      console.log(button.attributes.name);
-      document.getElementsByClassName(button.attributes.name).addEventListener;
+      contentSections.forEach((section) => section.classList.remove("active"));
+
+      const target = this.getAttribute("data-target");
+      document.getElementById(target).classList.add("active");
     });
   });
+
+  document.querySelector(".cust-header-btns.cus-modal-header-active")?.click();
 });
