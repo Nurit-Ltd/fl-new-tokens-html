@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
     <title>New Tokens</title>
   </head>
   <body>
@@ -235,7 +235,15 @@
                   alt="Zap-icon"
                   class="quick-buy-icon"
                 />
-                <button class="quick-buy-btn">10 XRP</button>
+                <input
+                  type="text"
+                  id="quick-buy-btn"
+                  class="quick-buy-btn"
+                  placeholder="10 XRP"
+                  value="10 XRP"
+                  autocomplete="off"
+                />
+                <!-- <button class="quick-buy-btn">10 XRP</button> -->
               </div>
 
               <!-- Quick Buy Button -->
@@ -1076,7 +1084,7 @@
                       <th>Created</th>
                       <th>Market Cap</th>
                       <th>Liquidity</th>
-                      <th>Vol 24h</th>
+                      <th>Vol <span id="clickedTimeDisplay"></span></th>
                       <th>Transactions</th>
                       <th>Audit</th>
                       <th>Action</th>
@@ -1389,7 +1397,7 @@
     </main>
 
     <!-- JavaScript -->
-    <script src="/js/main.js"></script>
+    <script src="./js/main.js"></script>
     <!-- JavaScript -->
   </body>
 </html>
