@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Watchlist items
 document.addEventListener("DOMContentLoaded", function () {
-
   const marquee = document.querySelector("marquee");
   
   // Stop marquee on mouse enter
